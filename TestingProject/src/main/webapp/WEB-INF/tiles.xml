@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/views/tiles/layout.jsp">
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+
+	<definition name="users-*" extends="base.definition">
+		<put-attribute name="body" value="/views/users/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="User {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="tests-*" extends="base.definition">
+		<put-attribute name="body" value="/views/tests/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="TEST {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="groups-*" extends="base.definition">
+		<put-attribute name="body" value="/views/groups/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="GROUP {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="courses-*" extends="base.definition">
+		<put-attribute name="body" value="/views/courses/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Course {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="questions-*" extends="base.definition">
+		<put-attribute name="body" value="/views/questions/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Questions {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="themes-*" extends="base.definition">
+		<put-attribute name="body" value="/views/themes/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Themes {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="resetPass-*" extends="base.definition">
+		<put-attribute name="body" value="/views/resetPass/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="ResetPass {1}"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="home" extends="base.definition">
+		<put-attribute name="body" value="/views/home.jsp"></put-attribute>
+		<put-attribute name="title" value="Logos"></put-attribute>
+	</definition>
+
+	<definition name="login" extends="base.definition">
+		<put-attribute name="body" value="/views/login.jsp"></put-attribute>
+		<put-attribute name="title" value="Login Page"></put-attribute>
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+	<definition name="admin" extends="base.definition">
+		<put-attribute name="body" value="/views/admin.jsp"></put-attribute>
+		<put-attribute name="title" value="Admin Page"></put-attribute>
+	</definition>
+	<definition name="403" extends="base.definition">
+		<put-attribute name="body" value="/views/403.jsp"></put-attribute>
+		<put-attribute name="title" value="No access Page"></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+	</definition>
+	<definition name="404" extends="base.definition">
+		<put-attribute name="body" value="/views/404.jsp"></put-attribute>
+		<put-attribute name="title" value="Not exist Page"></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+	</definition>
+
+</tiles-definitions>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<http use-expressions="true">
+		<csrf disabled="true" />
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="admin_page"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/view_users"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/delete_course*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" />
+		<intercept-url pattern="/delete*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/edit_my_info"
+			access="hasAnyRole( 'ROLE_MANAGER', 'ROLE_TEACHER','ROLE_STUDENT')" />
+		<intercept-url pattern="/edit_course*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" />
+		<intercept-url pattern="/edit*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/new_course"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" />
+		<intercept-url pattern="/view_courses"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+			<intercept-url pattern="/view_themes"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+			<intercept-url pattern="/view_theme*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/new*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/view_test*"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/view_tests"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+		<intercept-url pattern="/admin_page"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_TEACHER')" />
+			<intercept-url pattern="/view_groups_*"
+			access="hasAnyRole( 'ROLE_STUDENT')" />
+			<intercept-url pattern="/tests/newTest*"
+			access="hasAnyRole( 'ROLE_STUDENT')" />
+			
+
+		<logout logout-url="/logout" logout-success-url="/" />
+
+		<form-login login-page="/loginpage" default-target-url="/"
+			login-processing-url="/loginprocessing" authentication-failure-url="/loginpageFail" />
+	</http>
+
+	<beans:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+	<global-method-security secured-annotations="enabled" />
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="admin" password="admin" authorities="ROLE_ADMIN" />
+			</user-service>
+		</authentication-provider>
+		<authentication-provider user-service-ref="userDetailsService">
+
+			<password-encoder ref="encoder"></password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+	<beans:import resource="classpath:/META-INF/appContext.xml" />
+</beans:beans>

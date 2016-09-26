@@ -1,0 +1,11 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/D1zza/TestingSystem
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/views/questions/edit.jsp=UTF-8
+encoding//src/main/webapp/views/questions/new.jsp=UTF-8
+encoding//src/main/webapp/views/tests/new.jsp=UTF-8
+encoding//src/main/webapp/views/tiles/header.jsp=UTF-8
+encoding/<project>=UTF-8
